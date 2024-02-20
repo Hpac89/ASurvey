@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Platform - Chat</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(to right, #87CEEB, #fff);
+            color: #333;
+            padding: 10px;
+            text-align: left;
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-button {
+            background-color: #87CEEB;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 10px;
+            margin: 0;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            background: linear-gradient(to right, #87CEEB, #fff);
+            padding: 10px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .logo-button:hover {
+            background-color: #5F9EA0;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .chat-window {
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            text-align: left;
+            height: 400px;
+            overflow-y: scroll;
+        }
+
+        .message {
+            background-color: #e5e5e5;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        .messaging-bar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .input-container {
+            width: 70%;
+            display: flex;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #87CEEB;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #5F9EA0;
+        }
+
+        .switch {
+            display: flex;
+            align-items: center;
+        }
+
+        .switch input {
+            margin-left: 10px;
+        }
+
+        .switch-label {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="logo-button">Survey Platform</button>
+    </header>
+
+    <nav>
+        <a href="analyticslp.html">Analytics</a>
+        <a href="createsurvey.html">Create Surveys</a>
+        <a href="respondentscards.html">Talk to your Respondents</a>
+    </nav>
+
+    <div class="chat-container">
+        <div class="chat-window">
+            <div class="message">Hello! How can I help you today?</div>
+            <div class="message">I saw you seem not to be interacting with our surveys very often.</div>
+            <div class="message">Could you tell me how we could make the survey suit you better?</div>
+            <div class="message">Feel free to ask any questions.</div>
+        </div>
+
+        <div class="messaging-bar">
+            <div class="input-container">
+                <input type="text" placeholder="Type your message...">
+                <button>Send</button>
+            </div>
+
+            <div class="switch">
+                <span class="switch-label">Anonymous</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

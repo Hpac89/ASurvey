@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Survey Management - Admin Panel</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background: linear-gradient(to right, #5F9EA0, #87CEEB);
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .logo-button {
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav {
+            background: linear-gradient(to right, #5F9EA0, #87CEEB);
+            padding: 10px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ddd;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            box-sizing: border-box;
+            margin-top: 50px;
+        }
+
+        .template-list {
+            width: 60%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 30px;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+
+        .template-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .template-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background-color: #5F9EA0;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #4682b4;
+        }
+
+        .question-count {
+            font-size: 0.8em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="logo-button">Survey Platform</button>
+    </header>
+
+    <nav>
+        <a href="analyticslp.html">Analytics</a>
+        <a href="createsurvey.html">Create Surveys</a>
+        <a href="respondentscards.html">Talk to your Respondents</a>
+        <a href="templatemanagement.html">Template Management</a>
+    </nav>
+
+    <div class="content-container">
+        <h2>Template Survey Management</h2>
+
+        <div class="template-list">
+            <div class="template-item">
+                <div>Employee Satisfaction Survey</div>
+                <div class="template-actions">
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </div>
+                <div class="question-count">(10 questions)</div>
+            </div>
+            <div class="template-item">
+                <div>Product Feedback Survey</div>
+                <div class="template-actions">
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </div>
+                <div class="question-count">(5 questions)</div>
+            </div>
+            <!-- Add more template items dynamically or fetch from the server -->
+        </div>
+
+        <button onclick="createNewTemplate()">Create New Template</button>
+    </div>
+
+    <script>
+        function createNewTemplate() {
+            // Redirect to the page where you can create a new template survey
+            window.location.href = 'create_template.html';
+        }
+    </script>
+</body>
+</html>

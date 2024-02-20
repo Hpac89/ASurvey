@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Platform - Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(to right, #87CEEB, #fff);
+            color: #333;
+            padding: 10px;
+            text-align: left;
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-button {
+            background-color: #87CEEB;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 10px;
+            margin: 0;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            background: linear-gradient(to right, #87CEEB, #fff);
+            padding: 10px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .logo-button:hover {
+            background-color: #5F9EA0;
+        }
+
+        .graph-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        canvas {
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="logo-button">Survey Platform</button>
+    </header>
+
+    <nav>
+        <a href="analyticslp.html">Analytics</a>
+        <a href="createsurvey.html">Create Surveys</a>
+        <a href="respondentscards.html">Talk to your Respondents</a>
+    </nav>
+
+    <div class="graph-container">
+        <canvas id="participationGraph"></canvas>
+    </div>
+    <div class="graph-container">
+        <canvas id="enpsGraph"></canvas>
+    </div>
+    <div class="graph-container">
+        <canvas id="recognitionGraph"></canvas>
+    </div>
+    <div class="graph-container">
+        <canvas id="satisfactionGraph"></canvas>
+    </div>
+    <div class="graph-container">
+        <canvas id="alignmentGraph"></canvas>
+    </div>
+
+    <script>
+        // Generate random survey data for 5 weeks
+        const weeks = [...Array(5).keys()].map(week => 'Week ' + (week + 1));
+        const participationData = weeks.map(() => Math.random() * 100);
+        const enpsData = weeks.map(() => Math.random() * 50);
+        const recognitionData = weeks.map(() => Math.random() * 10);
+        const satisfactionData = weeks.map(() => Math.random() * 10);
+        const alignmentData = weeks.map(() => Math.random() * 10);
+
+        // Line graph configuration
+        function createGraph(elementId, data, label, color, yMax) {
+            const ctx = document.getElementById(elementId).getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: weeks,
+                    datasets: [{
+                        label: label,
+                        borderColor: color,
+                        backgroundColor: 'rgba(0, 0, 0, 0)',
+                        data: data,
+                        fill: false,
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Week'
+                            }
+                        }],
+                        y: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: label
+                            },
+                            ticks: {
+                                max: yMax
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+
+        // Create line graphs
+        createGraph('participationGraph', participationData, 'Participation %', '#4CAF50', 100);
+        createGraph('enpsGraph', enpsData, 'eNPS', '#FF9800', 50);
+        createGraph('recognitionGraph', recognitionData, 'Recognition', '#2196F3', 10);
+        createGraph('satisfactionGraph', satisfactionData, 'Satisfaction', '#FFC107', 10);
+        createGraph('alignmentGraph', alignmentData, 'Alignment', '#E91E63', 10);
+    </script>
+</body>
+</html>

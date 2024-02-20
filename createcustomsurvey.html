@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Custom Survey - Survey Platform</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background: linear-gradient(to right, #5F9EA0, #87CEEB);
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .logo-button {
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav {
+            background: linear-gradient(to right, #5F9EA0, #87CEEB);
+            padding: 10px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ddd;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            box-sizing: border-box;
+            margin-top: 50px;
+        }
+
+        .custom-survey-form {
+            width: 60%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 30px;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 20px 0 10px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #5F9EA0;
+            border: none;
+            color: #fff;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 1.2em;
+        }
+
+        button:hover {
+            background-color: #4682b4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="logo-button">Survey Platform</button>
+    </header>
+
+    <nav>
+        <a href="analyticslp.html">Analytics</a>
+        <a href="createsurvey.html">Create Surveys</a>
+        <a href="respondentscards.html">Talk to your Respondents</a>
+    </nav>
+
+    <div class="content-container">
+        <h2>Create Custom Survey</h2>
+
+        <form class="custom-survey-form">
+            <label for="question">Question:</label>
+            <input type="text" id="question" name="question" required>
+
+            <label for="answer-type">Answer Type:</label>
+            <select id="answer-type" name="answer-type" required>
+                <option value="text">Text</option>
+                <option value="slider">Slider Scale (1 to 10)</option>
+                <option value="yes-no">Yes/No</option>
+                <!-- Add more options as needed -->
+            </select>
+
+            <!-- Additional fields based on the answer type -->
+            <div id="slider-options" style="display:none;">
+                <label for="slider-min">Slider Min Value:</label>
+                <input type="number" id="slider-min" name="slider-min" min="1" max="10">
+
+                <label for="slider-max">Slider Max Value:</label>
+                <input type="number" id="slider-max" name="slider-max" min="1" max="10">
+            </div>
+
+            <button type="button" onclick="createCustomSurvey()">Create Survey</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("answer-type").addEventListener("change", function() {
+            var sliderOptions = document.getElementById("slider-options");
+            if (this.value === "slider") {
+                sliderOptions.style.display = "block";
+            } else {
+                sliderOptions.style.display = "none";
+            }
+        });
+
+        function createCustomSurvey() {
+            var question = document.getElementById("question").value;
+            var answerType = document.getElementById("answer-type").value;
+            var sliderMin = document.getElementById("slider-min").value;
+            var sliderMax = document.getElementById("slider-max").value;
+
+            // Perform actions based on the selected answer type
+            switch (answerType) {
+                case "text":
+                    alert("Custom Survey Created:\nQuestion: " + question + "\nAnswer Type: Text");
+                    break;
+                case "slider":
+                    alert("Custom Survey Created:\nQuestion: " + question + "\nAnswer Type: Slider (1 to 10)\nMin Value: " + sliderMin + "\nMax Value: " + sliderMax);
+                    break;
+                case "yes-no":
+                    alert("Custom Survey Created:\nQuestion: " + question + "\nAnswer Type: Yes/No");
+                    break;
+                default:
+                    alert("Invalid Answer Type");
+            }
+        }
+    </script>
+</body>
+</html>
