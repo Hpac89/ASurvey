@@ -1,89 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Survey Platform - Create Survey</title>
-        <style>
-            body {
-                font-family: 'Georgia', serif;
-                background-color: #f5f5f5;
-                margin: 0;
-                padding: 0;
-                text-align: center;
-            }
-    
-            header {
-                background: linear-gradient(to right, #87CEEB, #fff);
-                color: #333;
-                padding: 10px;
-                text-align: left;
-                font-size: 24px;
-                margin-bottom: 10px;
-                display: flex;
-                align-items: center;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            }
-    
-            .logo-button {
-                background-color: #87CEEB;
-                border: 1px solid #333;
-                color: #fff;
-                padding: 10px;
-                margin: 0;
-                font-weight: bold;
-                cursor: pointer;
-                box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
-            }
-    
-            nav {
-                background: linear-gradient(to right, #87CEEB, #fff);
-                padding: 10px;
-                text-align: left;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-    
-            nav a {
-                color: #333;
-                text-decoration: none;
-                padding: 10px;
-                margin: 0 10px;
-                font-weight: bold;
-            }
-    
-            .logo-button:hover {
-                background-color: #5F9EA0;
-            }
-    
-            .survey-options {
-                display: flex;
-                justify-content: center;
-                margin-top: 50px;
-            }
-    
-            .option-card {
-                width: 200px;
-                padding: 20px;
-                margin: 20px;
-                background-color: #fff;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                border-radius: 5px;
-                cursor: pointer;
-                transition: transform 0.2s ease-in-out;
-            }
-    
-            .option-card:hover {
-                transform: scale(1.05);
-            }
-    
-            .option-card h3 {
-                margin-bottom: 10px;
-            }
-        </style>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Platform - Create Survey</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(to right, #87CEEB, #fff);
+            color: #333;
+            padding: 10px;
+            text-align: left;
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-button {
+            background-color: #87CEEB;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 10px;
+            margin: 0;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            background: linear-gradient(to right, #87CEEB, #fff);
+            padding: 10px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .logo-button:hover {
+            background-color: #5F9EA0;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            box-sizing: border-box;
+            margin-top: 50px;
+        }
+
+        .custom-survey-form {
+            width: 60%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 30px;
+            box-sizing: border-box;
+            margin-top: 20px;
+            text-align: left; /* Align form elements to the left */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: calc(100% - 20px); /* Adjust width to fit within the box */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        button {
+            width: 100%; /* Make button full width */
+            background-color: #5F9EA0;
+            border: none;
+            color: #fff;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #4682b4;
+        }
+
+        #slider-options {
+            display: none; /* Hide slider options by default */
+        }
+    </style>
+</head>
 <body>
     <header>
         <button class="logo-button">Survey Platform</button>
@@ -111,7 +143,7 @@
             </select>
 
             <!-- Additional fields based on the answer type -->
-            <div id="slider-options" style="display:none;">
+            <div id="slider-options">
                 <label for="slider-min">Slider Min Value:</label>
                 <input type="number" id="slider-min" name="slider-min" min="1" max="10">
 
